@@ -1,0 +1,31 @@
+{{#extends 'base'}}
+{{#block 'content'}}
+<h1>Cars Record</h1> 
+<table class = "table">
+    <thead>
+        <tr>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Power Type</th>
+            <th>Vehicle Type</th>
+            <th>No. of Seaters</th>
+            <th>Year Made</th>
+            <th>Price </th> 
+            <th>Accessories</th>   
+        </tr>
+    </thead>
+    {{#each carRecord}}
+        <tr>
+            <td>{{this.Brand}}</td>
+            <td>{{this.Model}}</td>
+            <td>{{this.Power}}</td>
+            <td>{{this.Type}}</td>
+            <td>{{this.Seaters}}</td>
+            <td>{{this.Year}}</td>
+            <td>{{this.Cost}}</td>
+            <td>{{this.Accessories}}</td>
+        </tr>
+    {{/each}}
+</table>
+{{/block}}
+{{/extends}}
