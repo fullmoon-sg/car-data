@@ -59,23 +59,13 @@ async function main() {
         })    
     })
 
-    app.post('/car/:id/upate', async (req,res) => {
-        let {Brand,Model,Power,Type,Seaters,Year,Cost,Accessories} = req.body;
-          let newCarRecord = {
-            'Brand' : Brand,
-            'Model' : Model,
-            'Power' : Power,
-            'Type'  : Type,
-            'Seaters': Seaters,
-            'Year' : parseInt(Year),
-            'Cost' : parseInt(Cost),
-            'Accessories' : Accessories
-        }
-           
-        db.collection('Car').updateOne({
+    app.post('/car/:id/update', async (req,res) => {
+        let updateCar = {...req.body};
+         
+        await db.collection('Car').updateOne({
             '_id': ObjectId(req.params.id)
         },{
-                '$set' : newCarRecord
+                '$set' : updateCar
             });
         res.redirect('/')
     })
